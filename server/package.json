@@ -24,6 +24,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "node-notifier": "^5.4.0",
     "nodemon": "^1.18.10"
   }
 }

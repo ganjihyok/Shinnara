@@ -4,14 +4,27 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const errorHandler = require("errorhandler");
+const errorhandler = require("errorhandler");
+var notifier = require("node-notifier");
 
 mongoose.promise = global.Promise;
 
-//Configure isProduction variable
-const isProduction = process.env.NODE_ENV === "production";
-
 const app = express();
+
+//Configure production env/error handler
+if (process.env.NODE_ENV !== "production") {
+  // only use in development
+  app.use(errorhandler({ log: errorNotification }));
+}
+
+function errorNotification(err, str, req) {
+  const title = "Error in " + req.method + " " + req.url;
+
+  notifier.notify({
+    title: title,
+    message: str
+  });
+}
 
 app.use(cors());
 app.use(require("morgan")("dev"));
@@ -27,10 +40,6 @@ app.use(
   })
 );
 
-if (!isProduction) {
-  app.use(errorHandler());
-}
-
 //Configure Mongoose
 mongoose.connect("mongodb://localhost/authentication");
 mongoose.set("debug", true);
@@ -39,32 +48,6 @@ mongoose.set("debug", true);
 require("./models/Users");
 require("./config/passport");
 app.use(require("./routes"));
-
-//Error handlers & middlewares
-if (!isProduction) {
-  app.use((err, req, res) => {
-    res.status(err.status || 500);
-
-    res.json({
-      errors: {
-        message: err.message,
-        error: err
-      }
-    });
-  });
-}
-
-app.use((err, req, res) => {
-  console.log(req);
-  res.status(err.status || 500);
-
-  res.json({
-    errors: {
-      message: err.message,
-      error: {}
-    }
-  });
-});
 
 const port = process.env.PORT || 8000;
 

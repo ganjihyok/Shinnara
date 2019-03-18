@@ -87,8 +87,8 @@ router.post("/login", auth.optional, (req, res, next) => {
   )(req, res, next);
 });
 
-//GET current route (only authenticated users have access)
-router.get("/current", auth.required, (req, res, next) => {
+//GET home route (only authenticated users have access)
+router.get("/home", auth.required, (req, res, next) => {
   const {
     payload: { id }
   } = req;
