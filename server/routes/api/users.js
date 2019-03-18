@@ -40,7 +40,7 @@ router.post("/", auth.optional, (req, res, next) => {
 
       return finalUser
         .save()
-        .then(() => res.json({ user: finalUser.toAuthJSON() }));
+        .then(() => res.status(200).json({ user: finalUser.toAuthJSON() }));
     }
   });
 });
