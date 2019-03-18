@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./SignupModule.module.css";
-import axios from "axios";
 
 export default function SignupModule(props) {
   const [email, setEmail] = useState("");
@@ -34,6 +33,10 @@ export default function SignupModule(props) {
     };
 
     props.signUp(user);
+  }
+
+  function guestBtnHandler() {
+    props.guestLogin();
   }
 
   return (
@@ -72,7 +75,9 @@ export default function SignupModule(props) {
       <div>or</div>
       <div>
         <button>Log in</button>
-        <button>Guest</button>
+        <button type="button" onClick={guestBtnHandler}>
+          Guest
+        </button>
       </div>
     </div>
   );
