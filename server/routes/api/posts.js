@@ -3,6 +3,7 @@ const passport = require("passport");
 const router = require("express").Router();
 const auth = require("../auth");
 const Posts = mongoose.model("Posts");
+const Participants = mongoose.model("Participants");
 
 //POST new post route(authrized users only)
 router.post("/", auth.required, (req, res, next) => {
@@ -88,12 +89,10 @@ router.delete("/delete", auth.required, (req, res, next) => {
 
 //GET get posts route(authrized users & guest users)
 router.get("/", auth.required, (req, res, next) => {
-  Posts.find({}, function(err, result) {
-    if (err) {
-      return res.sendStatus(400);
-    } else {
-      return res.status(200).json({ result });
-    }
-  });
+  Posts.find({})
+    .populate("participantsId")
+    .exec((err, docs) =>
+      err ? console.log(err) : res.status(200).json({ result: docs })
+    );
 });
 module.exports = router;

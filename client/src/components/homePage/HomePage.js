@@ -35,6 +35,7 @@ class HomePage extends Component {
 
   render() {
     const { data } = this.state;
+    console.log(data);
     return (
       <div>
         {data.map(post => (
