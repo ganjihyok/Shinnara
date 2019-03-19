@@ -4,13 +4,13 @@ const router = require("express").Router();
 const auth = require("../auth");
 const Posts = mongoose.model("Posts");
 
-//POST new post route
+//POST new post route(authrized users only)
 router.post("/", auth.required, (req, res, next) => {
   const {
     body: { post, participants }
   } = req;
 
-  if (!post.ownerId) {
+  if (!post.ownerId || participants.length === 0) {
     return res.status(422).json({
       errors: {
         something: "went wrong"
@@ -19,6 +19,7 @@ router.post("/", auth.required, (req, res, next) => {
   }
 
   const newPost = new Posts(post);
+
   newPost.initializeParticipants(participants);
   newPost.initializeComment();
 
@@ -31,7 +32,7 @@ router.post("/", auth.required, (req, res, next) => {
   });
 });
 
-//POST update post route
+//POST update post route(authrized users only)
 router.post("/update", auth.required, (req, res, next) => {
   const {
     body: { post }
@@ -59,7 +60,7 @@ router.post("/update", auth.required, (req, res, next) => {
   );
 });
 
-//DELETE delete post route
+//DELETE delete post route(authrized users only)
 router.delete("/delete", auth.required, (req, res, next) => {
   const {
     body: { post, user }
@@ -84,6 +85,15 @@ router.delete("/delete", auth.required, (req, res, next) => {
     }
   });
 });
-//GET get posts route
 
+//GET get posts route(authrized users & guest users)
+router.get("/", auth.required, (req, res, next) => {
+  Posts.find({}, function(err, result) {
+    if (err) {
+      return res.sendStatus(400);
+    } else {
+      return res.status(200).json({ result });
+    }
+  });
+});
 module.exports = router;
