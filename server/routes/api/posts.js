@@ -59,6 +59,31 @@ router.post("/update", auth.required, (req, res, next) => {
   );
 });
 
+//DELETE delete post route
+router.delete("/delete", auth.required, (req, res, next) => {
+  const {
+    body: { post, user }
+  } = req;
+
+  if (!post.ownerId || !post._id) {
+    return res.status(422).json({
+      errors: {
+        something: "went wrong"
+      }
+    });
+  }
+
+  Posts.findOneAndRemove({ _id: post._id, ownerId: user._id }, function(
+    err,
+    result
+  ) {
+    if (err) {
+      return res.sendStatus(400);
+    } else {
+      return res.status(200).json({ result });
+    }
+  });
+});
 //GET get posts route
 
 module.exports = router;
