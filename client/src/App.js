@@ -12,7 +12,7 @@ class App extends Component {
     super();
     this.state = {
       isLoggedIn: false,
-      token: null
+      user: null
     };
 
     this.signUp = this.signUp.bind(this);
@@ -23,7 +23,10 @@ class App extends Component {
     axios
       .post("http://localhost:8000/api/users", { user })
       .then(res => {
-        console.log(res);
+        this.setState({
+          isLoggedIn: true,
+          user: res.user
+        });
       })
       .catch(err => {
         console.log(err.response.data.errors);
@@ -34,7 +37,10 @@ class App extends Component {
     axios
       .post("http://localhost:8000/api/users/login", { user })
       .then(res => {
-        console.log(res);
+        this.setState({
+          isLoggedIn: true,
+          user: res.user
+        });
       })
       .catch(err => {
         console.log(err.response.data.errors);
@@ -53,28 +59,36 @@ class App extends Component {
   }
 
   render() {
-    const { isLoggedIn } = this.state;
+    const { isLoggedIn, user } = this.state;
 
     return (
       <BrowserRouter>
         <Switch>
           <Route
             path="/home"
-            render={() => {
-              if (isLoggedIn) {
-                return <HomePage isLoggedIn={isLoggedIn} />;
-              } else {
-                return (
-                  <Redirect
-                    to={{
-                      pathname: "/auth"
-                    }}
-                  />
-                );
-              }
-            }}
+            render={() =>
+              isLoggedIn ? (
+                <HomePage isLoggedIn={isLoggedIn} user={user} />
+              ) : (
+                <Redirect to="/auth" />
+              )
+            }
           />
-          <Route exact path="/auth" component={AuthPage} />
+          <Route
+            exact
+            path="/auth"
+            render={() =>
+              isLoggedIn ? (
+                <Redirect to="/home" />
+              ) : (
+                <AuthPage
+                  signUp={this.signUp}
+                  logIn={this.logIn}
+                  guestLogin={this.guestLogin}
+                />
+              )
+            }
+          />
         </Switch>
       </BrowserRouter>
     );

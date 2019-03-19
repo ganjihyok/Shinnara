@@ -46,6 +46,9 @@ mongoose.set("debug", true);
 
 //Models/routes
 require("./models/Users");
+require("./models/Posts");
+require("./models/Participants");
+require("./models/Comment");
 require("./config/passport");
 app.use(require("./routes"));
 
