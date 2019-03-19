@@ -1,16 +1,48 @@
-import React, { useState } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from "react-router-dom";
+import React, { Component } from "react";
+import axios from "axios";
+// import {
+//   BrowserRouter,
+//   Route,
+//   Link,
+//   Redirect,
+//   withRouter
+// } from "react-router-dom";
 import styles from "./HomePage.module.css";
 
-export default function HomePage(props) {
-  //   const [email, setEmail] = useState("");
-  return (
-    <div className={styles.mainContainer}>{console.log(props.isLoggedIn)}</div>
-  );
+class HomePage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: []
+    };
+
+    this.fetchPosts = this.fetchPosts.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchPosts();
+  }
+
+  fetchPosts() {
+    const { user } = this.props;
+    axios
+      .get("http://localhost:8000/api/posts", {
+        headers: { authorization: `Token ${user.token}` }
+      })
+      .then(res => this.setState({ data: res.data.result }))
+      .catch(err => console.log(err));
+  }
+
+  render() {
+    const { data } = this.state;
+    return (
+      <div>
+        {data.map(post => (
+          <div>{post.content}</div>
+        ))}
+      </div>
+    );
+  }
 }
+
+export default HomePage;

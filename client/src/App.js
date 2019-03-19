@@ -25,7 +25,7 @@ class App extends Component {
       .then(res => {
         this.setState({
           isLoggedIn: true,
-          user: res.user
+          user: res.data.user
         });
       })
       .catch(err => {
@@ -39,7 +39,7 @@ class App extends Component {
       .then(res => {
         this.setState({
           isLoggedIn: true,
-          user: res.user
+          user: res.data.user
         });
       })
       .catch(err => {
@@ -60,7 +60,6 @@ class App extends Component {
 
   render() {
     const { isLoggedIn, user } = this.state;
-
     return (
       <BrowserRouter>
         <Switch>
