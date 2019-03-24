@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+.mainContainer {
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.loginForm input {
+  width: 100%;
+  resize: vertical;
+  height: 4vh;
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 2%;
+  padding: 2%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  outline: none;
+}
+
+.loginForm .loginBtn {
+  cursor: pointer;
+  font-size: 2vh;
+  color: white;
+  font-weight: 500;
+  border: 1px solid #374785;
+  background-color: #374785;
+}
+
+.loginForm .loginBtn:hover {
+  background-color: #24305e;
+}
+
+.loginForm .guestBtn {
+  cursor: pointer;
+  font-size: 2vh;
+  font-weight: 500;
+  border: 1px solid #f8e9a1;
+  background-color: #f8e9a1;
+}
+
+.loginForm .guestBtn:hover {
+  background-color: #f7e280;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+/* @media screen and (max-width: 600px) {
+  .col-25,
+  .col-75,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
+} */

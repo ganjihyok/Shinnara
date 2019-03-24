@@ -26,22 +26,32 @@ export default function LoginModule(props) {
 
   return (
     <div className={styles.mainContainer}>
-      <form onSubmit={onSubmit}>
+      <form className={styles.loginForm} onSubmit={onSubmit}>
         <input
           type="text"
-          name="email"
           value={email}
           placeholder="Enter email"
           onChange={handleEmailChange}
         />
         <input
           type="password"
-          name="password"
           value={password}
           placeholder="Enter password"
           onChange={handlePasswordChange}
         />
-        <input type="submit" name="submit" value="Log in" />
+        <input
+          className={styles.loginBtn}
+          type="submit"
+          name="submit"
+          value="Log in"
+        />
+        <div>or</div>
+        <input
+          className={styles.guestBtn}
+          type="button"
+          name="guestBtn"
+          value="Guest"
+        />
       </form>
     </div>
   );

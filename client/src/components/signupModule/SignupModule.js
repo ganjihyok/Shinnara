@@ -35,13 +35,9 @@ export default function SignupModule(props) {
     props.signUp(user);
   }
 
-  function guestBtnHandler() {
-    props.guestLogin();
-  }
-
   return (
     <div className={styles.mainContainer}>
-      <form onSubmit={onSubmit}>
+      <form className={styles.signupForm} onSubmit={onSubmit}>
         <input
           type="text"
           name="email"
@@ -70,15 +66,13 @@ export default function SignupModule(props) {
           placeholder="Re-enter password"
           onChange={handleRePasswordChange}
         />
-        <input type="submit" name="submit" value="Sign up" />
+        <input
+          className={styles.signupBtn}
+          type="submit"
+          name="submit"
+          value="Sign up"
+        />
       </form>
-      <div>or</div>
-      <div>
-        <button>Log in</button>
-        <button type="button" onClick={guestBtnHandler}>
-          Guest
-        </button>
-      </div>
     </div>
   );
 }

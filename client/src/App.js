@@ -61,7 +61,7 @@ class App extends Component {
   render() {
     const { isLoggedIn, user } = this.state;
     return (
-      <BrowserRouter>
+      <BrowserRouter className={styles.main}>
         <Switch>
           <Route
             path="/home"
@@ -86,6 +86,13 @@ class App extends Component {
                   guestLogin={this.guestLogin}
                 />
               )
+            }
+          />
+          <Route
+            exact
+            path="/"
+            render={() =>
+              isLoggedIn ? <Redirect to="/home" /> : <Redirect to="/auth" />
             }
           />
         </Switch>

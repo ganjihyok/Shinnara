@@ -1,0 +1,66 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.mainContainer {
+  position: absolute;
+  display: inline-block;
+  width: 70%;
+  bottom: 0;
+  top: 0;
+}
+
+.homeBtn {
+  float: left;
+  margin-top: 2%;
+  margin-left: 2%;
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: white;
+  font-size: 3vh;
+}
+
+.imgContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img {
+  width: 100%;
+}
+
+.slogan {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5%;
+  font-size: 4vh;
+  color: white;
+  margin-left: 2%;
+}
+
+.secondContainer {
+  display: inline-block;
+  position: absolute;
+  width: 30%;
+  background-color: #f76c6c;
+  right: 0;
+  top: 0;
+  bottom: 50%;
+}
+
+.thirdContainer {
+  display: inline-block;
+  position: absolute;
+  width: 30%;
+  background-color: #24305e;
+  right: 0;
+  bottom: 0;
+  top: 50%;
+}

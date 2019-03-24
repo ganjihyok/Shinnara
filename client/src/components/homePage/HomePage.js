@@ -13,7 +13,8 @@ class HomePage extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      curTab: "songList"
     };
 
     this.fetchPosts = this.fetchPosts.bind(this);
