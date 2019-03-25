@@ -1,0 +1,46 @@
+/* .wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+} */
+
+.wrapper {
+  /* display: grid; */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+}
+
+.homeBtn {
+  float: left;
+  margin-top: 2%;
+  margin-left: 2%;
+  border: none;
+  cursor: pointer;
+  background: none;
+  color: white;
+  font-size: 3vh;
+}
+
+.main-enter {
+  opacity: 0.01;
+}
+
+.main-enter.main-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.main-leave {
+  opacity: 1;
+}
+
+.main-leave.main-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
