@@ -1,61 +1,89 @@
-/* @keyframes main {
-  from {
-    transform: translate(-5%);
-  }
-  to {
-    transform: translate(0%);
-  }
-}
-
-@keyframes cate {
-  from {
-    transform: translate(-5%);
-  }
-  to {
-    transform: translate(0%);
-  }
-} */
-
-.wrapper {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f76c6c;
-  animation-name: main;
-  animation-duration: 0.8s;
-}
-
 .expandBtn {
   position: absolute;
   cursor: pointer;
   top: 0;
   bottom: 0;
-  left: 0;
   width: 100%;
-  background: none;
   border: none;
   outline: none;
   background-color: #f76c6c;
-  animation-name: cate;
-  animation-duration: 0.8s;
+}
+
+.expandBtn:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.btnInfo {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  color: white;
+  font-weight: 900;
+  text-align: left;
+}
+
+.divider {
+  border-top: 1px solid white;
+  width: 30px;
+}
+
+.newsContainer {
+  margin: 5%;
+  padding: 5%;
+  border-radius: 5px;
+  border: 1px solid #dcdcdc;
+  background-color: #fafafa;
+}
+
+.spinnerContainer {
+  position: absolute;
+  right: 50%;
+  top: 50%;
+}
+
+/* .feedContainer {
+  position: fixed;
+  width: 60%;
+  height: 66%;
+  margin: 5%;
+  padding: 2%;
+  border-radius: 5px;
+  border: 1px solid #dcdcdc;
+  background-color: #fafafa;
+} */
+
+.calendarIcon {
+  width: 50%;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.calendarIconSmall {
+  width: 20%;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .mainContainer {
   position: absolute;
   right: 0;
   width: 70%;
-  height: 100%;
+  min-height: 100%;
   background-color: #f76c6c;
-  -o-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  -webkit-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .secondContainer {
-  position: absolute;
+  position: fixed;
   right: 0;
   width: 30%;
   height: 50%;
@@ -63,14 +91,14 @@
   outline: none;
   background-color: #f76c6c;
   cursor: pointer;
-  -o-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  -webkit-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .thirdContainer {
-  position: absolute;
+  position: fixed;
   right: 0;
   width: 50%;
   height: 20%;
@@ -78,8 +106,8 @@
   outline: none;
   background-color: #f76c6c;
   cursor: pointer;
-  -o-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  -webkit-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }

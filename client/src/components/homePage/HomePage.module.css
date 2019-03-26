@@ -17,6 +17,7 @@
 }
 
 .homeBtn {
+  position: absolute;
   float: left;
   margin-top: 2%;
   margin-left: 2%;
@@ -25,6 +26,7 @@
   background: none;
   color: white;
   font-size: 3vh;
+  text-decoration: none;
 }
 
 .main-enter {

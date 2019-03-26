@@ -24,12 +24,42 @@ class SongList extends Component {
         <div>some content and doggy</div>
       </div>
     ) : curPage === "MainPage" ? (
-      <div className={styles.thirdContainer} onClick={this.clickHandler}>
-        sl not selected at the moment
+      <div className={styles.thirdContainer}>
+        <button
+          className={styles.expandBtn}
+          onClick={this.clickHandler}
+          type="button"
+        >
+          <img
+            className={styles.calendarIcon}
+            src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/music-circle-blue-512.png"
+            alt="calendar"
+          />
+          <div className={styles.btnInfo}>
+            <h2>SONGS TO DO</h2>
+            <div className={styles.divider} />
+            <p>Be in. Get ready. Do play. TOGETHER</p>
+          </div>
+        </button>
       </div>
     ) : (
-      <div className={styles.secondContainer} onClick={this.clickHandler}>
-        sl not selected at the moment
+      <div className={styles.secondContainer}>
+        <button
+          className={styles.expandBtn}
+          onClick={this.clickHandler}
+          type="button"
+        >
+          <img
+            className={styles.calendarIcon}
+            src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/music-circle-blue-512.png"
+            alt="calendar"
+          />
+          <div className={styles.btnInfo}>
+            <h2>SONGS TO DO</h2>
+            <div className={styles.divider} />
+            <p>Be in. Get ready. Do play. TOGETHER</p>
+          </div>
+        </button>
       </div>
     );
   }

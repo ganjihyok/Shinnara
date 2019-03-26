@@ -29,7 +29,9 @@ export default function SignupModule(props) {
     const user = {
       email,
       username,
-      password
+      password,
+      profilePic:
+        "https://cdn4.iconfinder.com/data/icons/rock-music-instruments/154/rock-band-drum-kit-music-512.png"
     };
 
     props.signUp(user);

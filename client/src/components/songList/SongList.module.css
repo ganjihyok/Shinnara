@@ -3,31 +3,63 @@
   cursor: pointer;
   top: 0;
   bottom: 0;
-  left: 0;
   width: 100%;
-  background: none;
   border: none;
   outline: none;
   background-color: #24305e;
-  animation-name: cate;
-  animation-duration: 0.8s;
+}
+
+.expandBtn:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.btnInfo {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 10%;
+  margin-left: 5%;
+  color: white;
+  font-weight: 900;
+  text-align: left;
+}
+
+.divider {
+  border-top: 1px solid white;
+  width: 30px;
+}
+
+.calendarIcon {
+  width: 50%;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+
+.calendarIconSmall {
+  width: 20%;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .mainContainer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   width: 100%;
   height: 80%;
   background-color: #24305e;
-  -o-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  -webkit-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .secondContainer {
-  position: absolute;
+  position: fixed;
   right: 70%;
   bottom: 0;
   width: 30%;
@@ -36,14 +68,14 @@
   outline: none;
   background-color: #24305e;
   cursor: pointer;
-  -o-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  -webkit-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .thirdContainer {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   width: 30%;
@@ -52,8 +84,8 @@
   outline: none;
   background-color: #24305e;
   cursor: pointer;
-  -o-transition: all 0.6s ease-out;
-  -moz-transition: all 0.6s ease-out;
-  -webkit-transition: all 0.6s ease-out;
-  transition: all 0.6s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }

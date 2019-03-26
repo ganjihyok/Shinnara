@@ -1,0 +1,23 @@
+.mainContainer {
+  margin: 3% 5% auto 5%;
+  padding: 2%;
+  border-radius: 5px;
+  border: 1px solid #dcdcdc;
+  background-color: #fafafa;
+}
+
+.profilePicContainer {
+  float: left;
+}
+
+.profilePic {
+  width: 40px;
+}
+
+.ownerUsername {
+  padding: 10px 10px 10px 50px;
+}
+
+.content {
+  margin-top: 3%;
+}

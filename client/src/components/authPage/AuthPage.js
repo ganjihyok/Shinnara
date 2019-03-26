@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./AuthPage.module.css";
 
 //components
@@ -9,9 +10,9 @@ export default function AuthPage(props) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.mainContainer}>
-        <button className={styles.homeBtn} type="button">
+        <Link className={styles.homeBtn} to="/home">
           SHINNARA.
-        </button>
+        </Link>
         <div className={styles.imgContainer}>
           <img
             className={styles.img}

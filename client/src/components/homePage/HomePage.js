@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { CSSTransitionGroup } from "react-transition-group";
 import styles from "./HomePage.module.css";
 
 //components
@@ -42,12 +41,13 @@ class HomePage extends Component {
 
   render() {
     const { curPage } = this.state;
+    const { user } = this.props;
 
     return (
       <div className={styles.wrapper}>
         <MainPage changePage={this.changePage} curPage={curPage} />
-        <NewsFeed changePage={this.changePage} curPage={curPage} />
-        <SongList changePage={this.changePage} curPage={curPage} />
+        <NewsFeed changePage={this.changePage} curPage={curPage} user={user} />
+        <SongList changePage={this.changePage} curPage={curPage} user={user} />
       </div>
     );
   }
